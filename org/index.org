@@ -6,7 +6,7 @@ Welcome to my org-mode powered blog. No markdown nonsense here - pure Emacs org 
 
 * Recent Posts
 
-This will automatically generate a sitemap of all posts.
+[[./sitemap.html][Browse all posts]] - Auto-generated list of all blog posts
 
 * About
 

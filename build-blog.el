@@ -10,8 +10,8 @@
          :headline-levels 4
          :auto-preamble t
          :auto-sitemap t
-         :sitemap-title "Nathan's Blog"
-         :sitemap-filename "index.html"
+         :sitemap-title "Blog Posts"
+         :sitemap-filename "sitemap.html"
          :html-head "<style>
 body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
 h1, h2, h3 { color: #333; }
