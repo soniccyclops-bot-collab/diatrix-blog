@@ -15,16 +15,18 @@
          :html-head "<style>
 body { 
   font-family: Georgia, serif; 
-  max-width: 800px; 
-  margin: 40px auto; 
-  padding: 20px; 
+  margin: 0;
+  padding: 40px 20px;
   line-height: 1.6;
   background: url('./circuit-bg.gif') repeat;
   background-color: #dcdcdc;
+  min-height: 100vh;
 }
 #content {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -36,6 +38,7 @@ code { background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
 a { color: #0066cc; }
 a:hover { color: #004499; }
 .title { text-align: center; margin-bottom: 2em; }
+#postamble { margin-top: 2em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.9em; color: #666; }
 </style>")))
 
 (org-publish-all t)
