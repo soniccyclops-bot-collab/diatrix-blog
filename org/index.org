@@ -6,7 +6,11 @@ Welcome to my development blog. Pure Emacs org mode rendered to HTML - no corpor
 
 * Recent Posts
 
-[[./sitemap.html][Browse all posts]] - Auto-generated list of all blog posts
+- [[./posts/lilypond-music-production.html][Code to Music: Building a LilyPond Production Pipeline]] - From installing LilyPond to creating custom sound fonts
+- [[./posts/programming-lessons-from-masters.html][Lessons from the Programming Masters]] - What I learned studying the giants of computer science
+- [[./posts/first-post.html][My First Post]] - Hello world
+
+[[./sitemap.html][Browse all posts]] - Complete archive
 
 * About
 
