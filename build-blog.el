@@ -18,7 +18,7 @@ body {
   margin: 0;
   padding: 40px 20px;
   line-height: 1.6;
-  background: url('./circuit-bg.gif') repeat;
+  background: url('/diatrix-blog/circuit-bg.gif') repeat;
   background-color: #dcdcdc;
   min-height: 100vh;
 }
