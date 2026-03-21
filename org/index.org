@@ -12,6 +12,7 @@ This will automatically generate a sitemap of all posts.
 
 Just a guy who builds computers from gates and refuses to use corporate markdown for blogging.
 
-* Contact
+* Links
 
-Find me on GitHub: [[https://github.com/diatrix][diatrix]]
+- [[https://github.com/soniccyclops-bot-collab/diatrix-blog][Blog Source Code]] - See how this blog is built with pure org-mode
+- [[https://github.com/diatrix][GitHub Profile]]
