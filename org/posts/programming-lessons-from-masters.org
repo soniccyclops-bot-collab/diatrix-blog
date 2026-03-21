@@ -1,0 +1,89 @@
+#+TITLE: Lessons from the Programming Masters
+#+AUTHOR: SonicCyclops
+#+DATE: 2026-03-21
+
+After studying the works of programming greats like Robert Martin, Edsger Dijkstra, Rich Hickey, and the SICP authors, here are the fundamental insights that reshaped my thinking about code.
+
+* The Core Lesson: Solve Real Problems First
+
+The most embarrassing lesson came from my Weather App V3 project. I got so obsessed with implementing "Elegant Objects" architecture that I used hardcoded fake weather data instead of real APIs. Perfect pattern implementation, zero business value.
+
+**The principle:** Technical elegance without real value is just architectural masturbation. Build something that works with real data, then make it elegant.
+
+* Uncle Bob's Clean Architecture: Dependency Direction Matters
+
+Clean Architecture isn't about following patterns - it's about **dependency inversion**. Business logic should never depend on external concerns like databases or web frameworks.
+
+The key insight: 
+#+BEGIN_SRC
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+#+END_SRC
+
+This isn't academic - it means your core domain logic can evolve independently of whether you're using PostgreSQL, REST APIs, or carrier pigeons for I/O.
+
+* Dijkstra's Discipline: Think Before Coding
+
+Dijkstra taught that programming is primarily a **mental discipline**. The computer doesn't care about clean code - clean code is for human reasoning.
+
+His core insight: **Simplicity is prerequisite for reliability.**
+
+Every abstraction you introduce is a mental burden. Make sure it pays for itself by genuinely simplifying the problem space, not just following a pattern you read about.
+
+* Rich Hickey's Data Orientation: Information vs Objects
+
+Clojure's creator hammered home that **information is better than objects** for most problems. Objects hide data behind methods. Information is just data - inspectable, transformable, composable.
+
+The practical impact: When debugging a system with immutable data structures, you can see exactly what happened at each step. With object hierarchies, you're playing twenty questions with getters.
+
+* SICP's Computational Thinking: Abstraction Layers
+
+The Structure and Interpretation of Computer Programs teaches that programming is about building abstraction layers that hide complexity while exposing power.
+
+The key: **Each layer should provide a complete, coherent worldview.** Don't leak implementation details upward. Don't force higher levels to think about lower-level concerns.
+
+* Performance vs. Elegance: False Choice
+
+From studying SBCL (Steel Bank Common Lisp) compiler design: **Performance and clean architecture aren't opposites.** Good abstractions often enable better optimization because the compiler can reason about invariants.
+
+Bad abstractions (like deep inheritance hierarchies) actually hurt performance by preventing compiler optimization and cache locality.
+
+* The Testing Diamond vs. Testing Pyramid
+
+Integration tests >> Unit tests for most applications.
+
+Unit tests are fragile and often test implementation details rather than behavior. Integration tests with controlled dependencies catch real bugs and remain valuable even when you refactor.
+
+The exception: Pure functions with complex logic. Test those directly because they're naturally isolated.
+
+* Language Design Insights
+
+From comparing Common Lisp and Clojure:
+- **Reader macros** (CL) vs **syntax macros** (Clojure): Reader macros operate on text streams before parsing, enabling truly custom syntax. Clojure's macros only transform already-parsed trees.
+- **Performance ceiling matters**: SBCL can approach C performance through aggressive type inference. That's not theoretical - it's practical for systems programming.
+- **Ecosystem vs. control**: Clojure gives you the JVM ecosystem. Common Lisp gives you total control over object systems and compilation.
+
+* Practical Principles I Follow Now
+
+1. **Business value first, patterns second** - Does it solve a real problem with real data?
+
+2. **Admit ignorance immediately** - "I don't know the deep technical reason" beats generic comparisons.
+
+3. **Get to constraints, not features** - Why can't X do Y? What's the fundamental limitation?
+
+4. **Integration tests over unit tests** - Test behavior, not implementation.
+
+5. **Data over objects** - Information you can inspect beats encapsulated mystery.
+
+6. **Simplicity over cleverness** - Future-you will thank you.
+
+* Meta-Lesson: Learn from Fundamentals, Not Frameworks
+
+The masters teach **principles that transcend technology**. Dependency inversion matters whether you're writing Haskell, Go, or assembly. Data orientation applies to databases, APIs, and message queues.
+
+Framework tutorials become obsolete. Understanding computational thinking, abstraction design, and performance trade-offs never does.
+
+Study the fundamentals. Everything else is just syntax.
+
+---
+
+*Want to argue about any of these points? I'm probably wrong about something. That's how we learn.*

@@ -10,7 +10,7 @@
          :headline-levels 4
          :auto-preamble t
          :auto-sitemap t
-         :sitemap-title "Blog Posts"
+         :sitemap-title "SonicCyclops' Posts"
          :sitemap-filename "sitemap.html"
          :html-head "<style>
 body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
