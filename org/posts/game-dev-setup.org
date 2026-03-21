@@ -1,0 +1,274 @@
+#+TITLE: Game Dev Arsenal: Building a Complete Development Environment
+#+DATE: <2026-03-21 Sat>
+#+AUTHOR: SonicCyclops
+#+DESCRIPTION: From engine selection to deployment pipelines - setting up a professional game development workflow
+
+* The Mission: Build Games That Actually Ship
+
+Game development is notorious for endless prototyping and never shipping. The solution? A development environment optimized for rapid iteration and reliable deployment. Here's my battle-tested setup for creating games that go from idea to playable reality.
+
+* Core Engine: Godot 4
+
+** Why Godot?
+- **Free and open source** - no licensing nightmares
+- **Lightweight** - ~40MB download vs gigabytes for Unity/Unreal  
+- **GDScript** - Python-like syntax designed for game logic
+- **Scene system** - composition over inheritance, naturally modular
+- **Built-in scripting** - no external IDE required (but supports external)
+
+** Installation and Setup
+#+BEGIN_SRC bash
+# Download latest stable from godotengine.org
+# Extract to ~/.local/bin for user install
+wget https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_linux.x86_64.zip
+unzip Godot_v4.2.1-stable_linux.x86_64.zip -d ~/.local/bin/
+ln -s ~/.local/bin/Godot_v4.2.1-stable_linux.x86_64 ~/.local/bin/godot
+#+END_SRC
+
+* Programming Environment
+
+** Primary: GDScript
+Fast iteration, no compilation step, designed for game logic:
+#+BEGIN_SRC gdscript
+extends CharacterBody2D
+
+@export var speed: float = 300.0
+@export var jump_velocity: float = -400.0
+
+func _physics_process(delta):
+    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+        velocity.y = jump_velocity
+    
+    var direction = Input.get_axis("ui_left", "ui_right")
+    velocity.x = direction * speed
+    
+    move_and_slide()
+#+END_SRC
+
+** Secondary: C# via Mono
+For performance-critical code or when interfacing with existing C# libraries:
+#+BEGIN_SRC bash
+# Install Mono development tools
+sudo apt install mono-devel msbuild
+# Godot will detect and enable C# support automatically
+#+END_SRC
+
+* Asset Creation Pipeline
+
+** Graphics: Aseprite + GIMP
+- **Aseprite** for pixel art and animations
+- **GIMP** for texture editing and photo manipulation
+- **Inkscape** for vector graphics and UI elements
+
+#+BEGIN_SRC bash
+# Install graphics tools
+sudo apt install gimp inkscape
+# Aseprite requires compilation from source or Steam purchase
+#+END_SRC
+
+** Audio: Audacity + LMMS
+- **Audacity** for sound effect editing
+- **LMMS** for music composition  
+- **sfxr/Bfxr** for procedural sound effects
+
+** 3D Modeling: Blender
+Even for 2D games, occasional 3D assets help (normal maps, pre-rendered sprites):
+#+BEGIN_SRC bash
+sudo apt install blender
+#+END_SRC
+
+* Version Control: Git with LFS
+
+Game assets are large. Git LFS handles binary files efficiently:
+
+#+BEGIN_SRC bash
+# Install Git LFS
+git lfs install
+
+# Track game asset types
+git lfs track "*.png"
+git lfs track "*.wav" 
+git lfs track "*.ogg"
+git lfs track "*.blend"
+git lfs track "*.aseprite"
+
+# Commit the tracking file
+git add .gitattributes && git commit -m "Setup Git LFS tracking"
+#+END_SRC
+
+** .gitignore for Godot
+#+BEGIN_SRC gitignore
+# Godot files to ignore
+.import/
+export.cfg
+export_presets.cfg
+.mono/
+data_*/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*~
+#+END_SRC
+
+* Build and Deployment
+
+** Export Templates
+Download export templates matching your Godot version:
+- Linux/X11
+- Windows Desktop  
+- macOS
+- HTML5 (WebAssembly)
+- Android APK
+
+** Automated Builds with GitHub Actions
+#+BEGIN_SRC yaml
+name: Build Game
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: true
+      - name: Setup Godot
+        uses: lihop/setup-godot@v2
+        with:
+          version: "4.2.1"
+      - name: Build for Linux
+        run: |
+          mkdir -p builds/linux
+          godot --headless --export "Linux/X11" builds/linux/game.x86_64
+#+END_SRC
+
+* Testing and Debugging
+
+** Unit Testing: GUT Framework
+#+BEGIN_SRC bash
+# Install GUT (Godot Unit Testing) via AssetLib in Godot
+# Or clone from GitHub
+git clone https://github.com/bitwes/Gut.git addons/gut
+#+END_SRC
+
+Example test structure:
+#+BEGIN_SRC gdscript
+extends GutTest
+
+func test_player_movement():
+    var player = preload("res://Player.tscn").instantiate()
+    player.speed = 100
+    assert_eq(player.speed, 100, "Player speed should be settable")
+#+END_SRC
+
+** Performance Profiling
+Use Godot's built-in profiler:
+- **Debugger** panel for real-time monitoring
+- **Network Profiler** for multiplayer games
+- **Visual Profiler** for rendering performance
+
+* Project Structure
+
+Organized folder structure prevents chaos:
+#+BEGIN_SRC
+project/
+├── scenes/           # .tscn files
+│   ├── ui/
+│   ├── levels/
+│   └── entities/
+├── scripts/          # .gd files
+├── assets/           # raw assets
+│   ├── graphics/
+│   ├── audio/
+│   └── fonts/
+├── exports/          # built game files
+└── addons/           # plugins and tools
+#+END_SRC
+
+* Rapid Prototyping Workflow
+
+** The 20-Minute Rule
+Any game mechanic should be testable within 20 minutes:
+
+1. **Create minimal scene** (Player + Ground + Goal)
+2. **Add basic input** (arrow keys, space)
+3. **Implement core mechanic** (jump, shoot, collect)
+4. **Test immediately** (F5 in Godot)
+5. **Iterate or pivot** based on feel
+
+** Prototype-First Development
+- Start with ugly rectangles and basic movement
+- Focus on gameplay feel before graphics
+- Use =ColorRect= nodes for quick visual placeholders
+- Add juice (particles, screen shake) only after core loop works
+
+* Multiplayer Considerations
+
+For networked games:
+- **Godot's built-in networking** (ENet-based)
+- **Authoritative server** architecture
+- **Client prediction** for responsiveness
+- **Rollback networking** for competitive games
+
+#+BEGIN_SRC gdscript
+# Basic multiplayer setup
+func _ready():
+    if is_multiplayer_authority():
+        # Server logic
+        pass
+    else:
+        # Client logic  
+        pass
+
+@rpc("call_local", "reliable")
+func player_move(position: Vector2):
+    global_position = position
+#+END_SRC
+
+* Deployment Targets
+
+** Itch.io
+Perfect for indie game distribution:
+- HTML5 builds for instant browser play
+- Desktop downloads for better performance
+- Analytics and revenue tracking
+
+** Steam
+For commercial releases:
+- Steamworks SDK integration
+- Achievement system
+- Steam Workshop support
+
+** Mobile
+Android/iOS via export templates:
+- Touch input handling
+- Performance optimization for mobile GPUs
+- In-app purchase integration
+
+* Development Philosophy
+
+** Ship Small, Ship Often
+- Complete tiny games rather than dreaming of epics
+- Every project should reach "done" state
+- Learn from player feedback on finished products
+
+** Tools Over Features
+- Build editor tools for level design
+- Automate repetitive tasks with scripts
+- Invest in debugging and profiling infrastructure
+
+** Performance Budget
+- Target 60 FPS on modest hardware
+- Profile early and often
+- Prefer simple algorithms that ship over complex ones that don't
+
+* Conclusion
+
+Game development success comes from treating it like software engineering: version control, automated testing, reproducible builds, and ruthless focus on shipping.
+
+The tools are free, the tutorials are abundant, and the only thing stopping you from making games is starting.
+
+---
+
+*Next post: Building my first complete game with this setup - from concept to itch.io deployment in one week.*
