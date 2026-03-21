@@ -15,4 +15,4 @@ Just a guy who builds computers from gates and refuses to use corporate markdown
 * Links
 
 - [[https://github.com/soniccyclops-bot-collab/diatrix-blog][Blog Source Code]] - See how this blog is built with pure org-mode
-- [[https://github.com/diatrix][GitHub Profile]]
+- [[https://github.com/soniccyclops-bot-collab][SonicCyclops GitHub]]
