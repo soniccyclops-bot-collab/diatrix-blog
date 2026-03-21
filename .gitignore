@@ -1,0 +1,11 @@
+# Generated files
+www/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Emacs
+*~
+\#*\#
+.#*

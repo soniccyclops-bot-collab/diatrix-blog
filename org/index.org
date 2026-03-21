@@ -1,0 +1,17 @@
+#+TITLE: Nathan's Blog
+#+AUTHOR: Nathan
+#+DATE: 2026-03-21
+
+Welcome to my org-mode powered blog. No markdown nonsense here - pure Emacs org mode rendered to HTML.
+
+* Recent Posts
+
+This will automatically generate a sitemap of all posts.
+
+* About
+
+Just a guy who builds computers from gates and refuses to use corporate markdown for blogging.
+
+* Contact
+
+Find me on GitHub: [[https://github.com/diatrix][diatrix]]

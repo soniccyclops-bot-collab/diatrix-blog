@@ -1,0 +1,27 @@
+#+TITLE: My First Post
+#+AUTHOR: Nathan
+#+DATE: 2026-03-21
+
+This is my first post on my new org-mode blog!
+
+* Why Org Mode?
+
+Because markdown is for corporate simps. Org mode gives you:
+
+- Real structure and outlining
+- Code blocks that actually work  
+- Math support: $E = mc^2$
+- Tables that don't suck
+- Export to anything (HTML, LaTeX, PDF)
+
+* Code Example
+
+#+BEGIN_SRC elisp
+(defun hello-world ()
+  "A simple hello world function"
+  (message "Hello from Emacs Lisp!"))
+#+END_SRC
+
+* Conclusion
+
+Org mode or bust. No compromises.
