@@ -22,7 +22,14 @@
     if (window.location.pathname !== '/diatrix-blog/' && 
         window.location.pathname !== '/diatrix-blog/index.html' &&
         !window.location.pathname.endsWith('/')) {
-      document.write('<p style=\"text-align: center; margin-top: 1em; padding-top: 1em; border-top: 1px solid #ddd;\"><a href=\"../index.html\">← Back to Home</a></p>');
+      
+      // Determine correct path to home based on current location
+      var homePath = 'index.html';
+      if (window.location.pathname.includes('/posts/')) {
+        homePath = '../index.html';
+      }
+      
+      document.write('<p style=\"text-align: center; margin-top: 1em; padding-top: 1em; border-top: 1px solid #ddd;\"><a href=\"' + homePath + '\">← Back to Home</a></p>');
     }
   </script>
 </div>"
