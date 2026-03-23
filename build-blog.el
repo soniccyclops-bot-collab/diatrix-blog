@@ -12,6 +12,16 @@
          :auto-sitemap t
          :sitemap-title "SonicCyclops' Posts"
          :sitemap-filename "sitemap.html"
+         :html-postamble "<div class=\"postamble\">
+  <script>
+    // Add navigation link if not on homepage
+    if (window.location.pathname !== '/diatrix-blog/' && 
+        window.location.pathname !== '/diatrix-blog/index.html' &&
+        !window.location.pathname.endsWith('/')) {
+      document.write('<p style=\"text-align: center; margin-top: 2em; padding-top: 1em; border-top: 1px solid #ddd;\"><a href=\"../index.html\">← Back to Home</a></p>');
+    }
+  </script>
+</div>"
          :html-head "<style>
 body { 
   font-family: Georgia, serif; 
@@ -38,7 +48,9 @@ code { background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
 a { color: #0066cc; }
 a:hover { color: #004499; }
 .title { text-align: center; margin-bottom: 2em; }
-#postamble { margin-top: 2em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.9em; color: #666; }
+#postamble { margin-top: 2em; font-size: 0.9em; color: #666; }
+.postamble a { color: #0066cc; text-decoration: none; }
+.postamble a:hover { color: #004499; }
 </style>")))
 
 (org-publish-all t)
