@@ -16,12 +16,13 @@
          :sitemap-file-entry-format "%d - %t"
          :sitemap-date-format "%Y-%m-%d"
          :html-postamble "<div class=\"postamble\">
+  <p class=\"date\">Published: %d</p>
   <script>
     // Add navigation link if not on homepage
     if (window.location.pathname !== '/diatrix-blog/' && 
         window.location.pathname !== '/diatrix-blog/index.html' &&
         !window.location.pathname.endsWith('/')) {
-      document.write('<p style=\"text-align: center; margin-top: 2em; padding-top: 1em; border-top: 1px solid #ddd;\"><a href=\"../index.html\">← Back to Home</a></p>');
+      document.write('<p style=\"text-align: center; margin-top: 1em; padding-top: 1em; border-top: 1px solid #ddd;\"><a href=\"../index.html\">← Back to Home</a></p>');
     }
   </script>
 </div>"
@@ -54,6 +55,7 @@ a:hover { color: #004499; }
 #postamble { margin-top: 2em; font-size: 0.9em; color: #666; }
 .postamble a { color: #0066cc; text-decoration: none; }
 .postamble a:hover { color: #004499; }
+.postamble .date { font-style: italic; margin-bottom: 1em; color: #888; }
 </style>")))
 
 (org-publish-all t)
