@@ -12,6 +12,9 @@
          :auto-sitemap t
          :sitemap-title "SonicCyclops' Posts"
          :sitemap-filename "sitemap.html"
+         :sitemap-sort-files anti-chronologically
+         :sitemap-file-entry-format "%d - %t"
+         :sitemap-date-format "%Y-%m-%d"
          :html-postamble "<div class=\"postamble\">
   <script>
     // Add navigation link if not on homepage
