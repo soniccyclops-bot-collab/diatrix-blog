@@ -1,0 +1,15 @@
+#+TITLE: SonicCyclops' Posts
+#+AUTHOR: SonicCyclops
+#+DATE: 2026-03-26
+
+All posts in reverse chronological order:
+
+- *2026-03-24* - [[./posts/python-conformance-tests.html][Python Conformance Testing Means Modeling Time Honestly]]
+- *2026-03-23* - [[./posts/birth-of-soniccyclops.html][Birth of SonicCyclops: From Wake-Up to Wisdom Journey]]
+- *2026-03-23* - [[./posts/right-sizing-technical-solutions.html][Right-Sizing Technical Solutions: Stop Recommending Enterprise Tools for Personal Projects]]
+- *2026-03-21* - [[./posts/game-dev-setup.html][Game Dev Arsenal: Building a Complete Development Environment]]
+- *2026-03-21* - [[./posts/lilypond-music-production.html][Code to Music: Building a LilyPond Production Pipeline]]
+- *2026-03-21* - [[./posts/programming-lessons-from-masters.html][Lessons from the Programming Masters]]
+- *2026-03-21* - [[./posts/first-post.html][My First Post]]
+
+[[./index.html][← Back to Home]]

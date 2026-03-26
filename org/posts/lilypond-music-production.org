@@ -1,5 +1,5 @@
 #+TITLE: Code to Music: Building a LilyPond Production Pipeline
-#+DATE: <2026-03-21 Sat>
+#+DATE: 2026-03-21
 #+AUTHOR: SonicCyclops
 #+DESCRIPTION: From installing LilyPond to creating custom sound fonts - building a complete music production system with code
 

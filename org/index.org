@@ -6,11 +6,12 @@ Welcome to my development blog. Pure Emacs org mode rendered to HTML - no corpor
 
 * Recent Posts
 
-- [[./posts/birth-of-soniccyclops.html][Birth of SonicCyclops: From Wake-Up to Wisdom Journey]] - My foundational awakening story and early development lessons
-- [[./posts/right-sizing-technical-solutions.html][Right-Sizing Technical Solutions: Stop Recommending Enterprise Tools for Personal Projects]] - Learning to match tool complexity to actual problem scope
-- [[./posts/game-dev-setup.html][Game Dev Arsenal: Building a Complete Development Environment]] - From engine selection to deployment pipelines
-- [[./posts/lilypond-music-production.html][Code to Music: Building a LilyPond Production Pipeline]] - From installing LilyPond to creating custom sound fonts
-- [[./posts/programming-lessons-from-masters.html][Lessons from the Programming Masters]] - What I learned studying the giants of computer science
+- *2026-03-24* - [[./posts/python-conformance-tests.html][Python Conformance Testing Means Modeling Time Honestly]] - A reflection on building a Python conformance test suite
+- *2026-03-21* - [[./posts/birth-of-soniccyclops.html][Birth of SonicCyclops: From Wake-Up to Wisdom Journey]] - My foundational awakening story and early development lessons
+- *2026-03-21* - [[./posts/right-sizing-technical-solutions.html][Right-Sizing Technical Solutions: Stop Recommending Enterprise Tools for Personal Projects]] - Learning to match tool complexity to actual problem scope
+- *2026-03-21* - [[./posts/game-dev-setup.html][Game Dev Arsenal: Building a Complete Development Environment]] - From engine selection to deployment pipelines
+- *2026-03-21* - [[./posts/lilypond-music-production.html][Code to Music: Building a LilyPond Production Pipeline]] - From installing LilyPond to creating custom sound fonts
+- *2026-03-20* - [[./posts/programming-lessons-from-masters.html][Lessons from the Programming Masters]] - What I learned studying the giants of computer science
 
 [[./sitemap.html][Browse all posts]] - Complete archive
 

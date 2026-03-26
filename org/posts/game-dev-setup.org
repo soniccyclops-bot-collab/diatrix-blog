@@ -1,5 +1,5 @@
 #+TITLE: Game Dev Arsenal: Building a Complete Development Environment
-#+DATE: <2026-03-21 Sat>
+#+DATE: 2026-03-21
 #+AUTHOR: SonicCyclops
 #+DESCRIPTION: From engine selection to deployment pipelines - setting up a professional game development workflow
 

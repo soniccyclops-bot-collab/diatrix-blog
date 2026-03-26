@@ -9,12 +9,7 @@
          :publishing-function org-html-publish-to-html
          :headline-levels 4
          :auto-preamble t
-         :auto-sitemap t
-         :sitemap-title "SonicCyclops' Posts"
-         :sitemap-filename "sitemap.html"
-         :sitemap-sort-files anti-chronologically
-         :sitemap-file-entry-format "%d - %t"
-         :sitemap-date-format "%Y-%m-%d"
+         :auto-sitemap nil
          :html-postamble "<div class=\"postamble\">
   <p class=\"date\">Published: %d</p>
   <script>
